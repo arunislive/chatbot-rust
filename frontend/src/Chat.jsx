@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import {useState, useEffect, useRef} from "react";
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
@@ -20,7 +20,7 @@ const Chat = () => {
 
 
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        messagesEndRef.current?.scrollIntoView({behavior: "smooth"});
     }, [messages]);
 
     const sendMessage = () => {
@@ -32,7 +32,7 @@ const Chat = () => {
 
     return (
         <div className="flex flex-col w-96 bg-gray-800 p-4 rounded-lg">
-            <div className="h-60 overflow-y-auto border-b border-gray-600 mb-4 p-2 space-y-2">
+            <div className="h-60 overflow-y-auto border-b border-gray-600  mb-4 p-2 space-y-2">
                 {messages.map((msg, idx) => (
                     <div
                         key={idx}
@@ -43,17 +43,17 @@ const Chat = () => {
                         {msg}
                     </div>
                 ))}
-                <div ref={messagesEndRef} />
+                <div ref={messagesEndRef}/>
             </div>
             <div className="flex">
                 <input
                     type="text"
-                    className="flex-1 p-2 bg-gray-700 text-white rounded-l"
+                    className="flex-1 p-2 bg-gray-700 text-white rounded-l-xl outline-none"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && sendMessage()}
                 />
-                <button onClick={sendMessage} className="bg-blue-600 px-4 text-white rounded-r">
+                <button onClick={sendMessage} className="bg-blue-600 px-4  text-white rounded-r-lg outline-none">
                     Send
                 </button>
             </div>
